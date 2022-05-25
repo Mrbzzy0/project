@@ -1,0 +1,123 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "clock"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "KeyboardInterrupt",
+     "evalue": "",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mKeyboardInterrupt\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[1;32mUntitled-1.ipynb Cell 2'\u001b[0m in \u001b[0;36m<cell line: 53>\u001b[1;34m()\u001b[0m\n\u001b[0;32m     <a href='vscode-notebook-cell:Untitled-1.ipynb?jupyter-notebook#ch0000010untitled?line=56'>57</a>\u001b[0m ghadi_bana(ghantaa, minutee, secondd, kalam) \u001b[39m#calling the ghanta_bana() function with the given parameters\u001b[39;00m\n\u001b[0;32m     <a href='vscode-notebook-cell:Untitled-1.ipynb?jupyter-notebook#ch0000010untitled?line=57'>58</a>\u001b[0m screen\u001b[39m.\u001b[39mupdate() \u001b[39m#updating the scren\u001b[39;00m\n\u001b[1;32m---> <a href='vscode-notebook-cell:Untitled-1.ipynb?jupyter-notebook#ch0000010untitled?line=58'>59</a>\u001b[0m time\u001b[39m.\u001b[39;49msleep(\u001b[39m1\u001b[39;49m) \u001b[39m#making the code sleep for a second with the time module\u001b[39;00m\n\u001b[0;32m     <a href='vscode-notebook-cell:Untitled-1.ipynb?jupyter-notebook#ch0000010untitled?line=59'>60</a>\u001b[0m kalam\u001b[39m.\u001b[39mclear()\n",
+      "\u001b[1;31mKeyboardInterrupt\u001b[0m: "
+     ]
+    }
+   ],
+   "source": [
+    "import turtle\n",
+    "import time\n",
+    "\n",
+    "screen = turtle.Screen() #turtle screen\n",
+    "screen.bgcolor(\"white\") #background of the screen\n",
+    "screen.setup(width=600, height=600) #geometry of the GUI\n",
+    "screen.title(\"Ghadi\") #title of the GUI\n",
+    "screen.tracer(0) #tracer for the GUI\n",
+    "\n",
+    "kalam = turtle.Turtle() #the turtle\n",
+    "kalam.hideturtle() #make the turtle invisible\n",
+    "kalam.speed(0) #setting the speed to 0\n",
+    "kalam.pensize(3) #setting the pensize to 3\n",
+    "\n",
+    "\n",
+    "def ghadi_bana(ghantaa, minutee, secondd, kalam): #function with 4 parameters\n",
+    "\n",
+    "    kalam.up() #not ready to draw\n",
+    "    kalam.goto(0, 210) #positioning the turtle\n",
+    "    kalam.setheading(180) #setting the heading to 180\n",
+    "    kalam.color(\"red\") #setting the color of the pen to red\n",
+    "    kalam.pendown() #starting to draw\n",
+    "    kalam.circle(210) #a circle with the radius 210\n",
+    "\n",
+    "    kalam.up() #not ready to draw\n",
+    "    kalam.goto(0, 0) #positioning the turtle\n",
+    "    kalam.setheading(90) #same as seth(90) in newer version\n",
+    "\n",
+    "    for z in range(12): #loop \n",
+    "        kalam.fd(190) #moving forward at 190 units\n",
+    "        kalam.pendown() #starting to draw\n",
+    "        kalam.fd(20) #forward at 20\n",
+    "        kalam.penup() #not ready to draw\n",
+    "        kalam.goto(0, 0) #positioning the turtle\n",
+    "        kalam.rt(30) #right at an angle of 30 degrees\n",
+    "\n",
+    "    hands = [(\"black\", 80, 12), (\"black\", 150, 60), (\"black\", 110, 60)] #the color and the hands set\n",
+    "    time_set = (ghantaa, minutee, secondd) #setting the time\n",
+    "\n",
+    "    for hand in hands: #loop\n",
+    "        time_part = time_set[hands.index(hand)] #time part in the hand index in hands of time_Set\n",
+    "        angle = (time_part/hand[2])*360 #setting the angle for the clock\n",
+    "        kalam.penup() #not ready to draw\n",
+    "        kalam.goto(0, 0) #positioning the turtle\n",
+    "        kalam.color(hand[0]) #setting the color of the hand\n",
+    "        kalam.setheading(90) #same as seth(90)\n",
+    "        kalam.rt(angle) #right at an angle of \"right\"\n",
+    "        kalam.pendown() #ready to draw\n",
+    "        kalam.fd(hand[1]) #forward at a unit of 1st index of the hand var\n",
+    "\n",
+    "\n",
+    "while True:\n",
+    "    ghantaa = int(time.strftime(\"%I\")) #setting the hour from the time module\n",
+    "    minutee = int(time.strftime(\"%M\")) #setting the minute from the time module\n",
+    "    secondd = int(time.strftime(\"%S\")) #setting the second as above\n",
+    "\n",
+    "    ghadi_bana(ghantaa, minutee, secondd, kalam) #calling the ghanta_bana() function with the given parameters\n",
+    "    screen.update() #updating the scren\n",
+    "    time.sleep(1) #making the code sleep for a second with the time module\n",
+    "    kalam.clear() #clearing the pen"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "interpreter": {
+   "hash": "b3ba2566441a7c06988d0923437866b63cedc61552a5af99d1f4fb67d367b25f"
+  },
+  "kernelspec": {
+   "display_name": "Python 3.9.12 ('base')",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.12"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
